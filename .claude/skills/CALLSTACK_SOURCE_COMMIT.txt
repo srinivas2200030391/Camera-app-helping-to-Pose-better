@@ -1,0 +1,1 @@
+callstackincubator/agent-skills 59e9d17446a248b21d86f078fcd0bd2d36db1ca4 Thu Oct 8 21:06:38 2026 +0200

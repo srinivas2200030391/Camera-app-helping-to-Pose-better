@@ -1,0 +1,114 @@
+{
+  "name": "poselens-ai",
+  "version": "1.0.0",
+  "main": "expo-router/entry",
+  "private": true,
+  "scripts": {
+    "start": "expo start",
+    "start:go": "expo start --go",
+    "start:dev-client": "expo start --dev-client",
+    "android": "expo run:android",
+    "prebuild:android": "expo prebuild --platform android",
+    "build:apk": "node scripts/build-apk.mjs release --prebuild",
+    "build:apk:dev-client": "node scripts/build-apk.mjs debug --prebuild",
+    "typecheck": "tsc --noEmit",
+    "lint": "expo lint",
+    "test": "jest --maxWorkers=2",
+    "test:ci": "jest --ci --maxWorkers=2",
+    "check": "npm run typecheck && npm run lint && npm run test:ci",
+    "doctor": "expo-doctor"
+  },
+  "dependencies": {
+    "@shopify/react-native-skia": "2.14.0",
+    "expo": "~58.0.19",
+    "expo-build-properties": "~58.0.11",
+    "expo-camera": "~58.0.12",
+    "expo-constants": "~58.0.13",
+    "expo-dev-client": "~58.0.15",
+    "expo-device": "~58.0.5",
+    "expo-file-system": "~58.0.11",
+    "expo-haptics": "~58.0.7",
+    "expo-image": "~58.0.17",
+    "expo-image-manipulator": "~58.0.15",
+    "expo-keep-awake": "~58.0.3",
+    "expo-linear-gradient": "~58.0.3",
+    "expo-linking": "~58.0.14",
+    "expo-media-library": "~58.0.12",
+    "expo-router": "~58.0.26",
+    "expo-sensors": "~58.0.4",
+    "expo-splash-screen": "~58.0.11",
+    "expo-sqlite": "~58.0.14",
+    "expo-status-bar": "~58.0.4",
+    "expo-system-ui": "~58.0.6",
+    "lucide-react-native": "1.61.0",
+    "react": "19.3.0",
+    "react-dom": "19.3.0",
+    "react-native": "0.88.0",
+    "react-native-gesture-handler": "~3.3.0",
+    "react-native-nitro-image": "0.15.2",
+    "react-native-nitro-modules": "0.37.1",
+    "react-native-reanimated": "4.7.1",
+    "react-native-safe-area-context": "~5.10.1",
+    "react-native-screens": "~4.30.0",
+    "react-native-svg": "15.16.0",
+    "react-native-vision-camera": "5.2.3",
+    "react-native-vision-camera-face-detector": "2.1.0",
+    "react-native-worklets": "0.13.0",
+    "zustand": "5.0.16"
+  },
+  "devDependencies": {
+    "@testing-library/react-native": "^14.1.0",
+    "@types/jest": "^30.0.0",
+    "@types/node": "^22.20.5",
+    "@types/react": "~19.3.0",
+    "eslint": "^9.39.5",
+    "eslint-config-expo": "~58.0.4",
+    "jest": "~30.5.2",
+    "jest-expo": "~58.0.12",
+    "react-test-renderer": "19.3.0",
+    "typescript": "~6.0.3"
+  },
+  "expo": {
+    "autolinking": {
+      "android": {
+        "exclude": [
+          "expo-camera"
+        ]
+      }
+    }
+  },
+  "jest": {
+    "projects": [
+      {
+        "displayName": "unit",
+        "preset": "jest-expo",
+        "testMatch": [
+          "<rootDir>/src/**/__tests__/**/*.test.ts?(x)"
+        ],
+        "testPathIgnorePatterns": [
+          "\\.skia\\.test\\.ts$"
+        ],
+        "moduleNameMapper": {
+          "^@/(.*)$": "<rootDir>/src/$1"
+        }
+      },
+      {
+        "displayName": "skia",
+        "preset": "jest-expo",
+        "testEnvironment": "@shopify/react-native-skia/jestEnv.js",
+        "setupFiles": [
+          "@shopify/react-native-skia/jestSetup.js"
+        ],
+        "testMatch": [
+          "<rootDir>/src/**/__tests__/**/*.skia.test.ts"
+        ],
+        "transformIgnorePatterns": [
+          "node_modules/(?!((jest-)?react-native|@react-native(-community)?|expo(nent)?|@expo(nent)?/.*|@shopify/react-native-skia|react-native-svg))"
+        ],
+        "moduleNameMapper": {
+          "^@/(.*)$": "<rootDir>/src/$1"
+        }
+      }
+    ]
+  }
+}

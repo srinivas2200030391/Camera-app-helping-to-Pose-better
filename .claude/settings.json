@@ -1,0 +1,15 @@
+{
+  "enabledPlugins": {
+    "expo@anthropic-plugin-directory": true,
+    "building-react-native-apps@callstack-agent-skills": true,
+    "testing-react-native-apps@callstack-agent-skills": true
+  },
+  "extraKnownMarketplaces": {
+    "callstack-agent-skills": {
+      "source": {
+        "source": "github",
+        "repo": "callstackincubator/agent-skills"
+      }
+    }
+  }
+}
